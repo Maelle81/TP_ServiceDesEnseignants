@@ -1,9 +1,14 @@
 package champollion;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
-
+    
+    private final List<ServicePrevu> myClasses = new LinkedList<>();
+    
     public Enseignant(String nom, String email) {
         super(nom, email);
     }
@@ -53,6 +58,6 @@ public class Enseignant extends Personne {
     }
 
     public int resteAPlanifier( UE ue, TypeIntervention type){
-        
+        return 5;
     }
 }
