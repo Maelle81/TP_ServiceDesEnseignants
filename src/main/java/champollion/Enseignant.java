@@ -47,5 +47,12 @@ public class Enseignant extends Personne {
         // TODO: Implémenter cette méthode
         throw new UnsupportedOperationException("Pas encore implémenté");
     }
+    
+    public void ajouteIntervention(Intervention inter){
+        
+    }
 
+    public int resteAPlanifier( UE ue, TypeIntervention type){
+        
+    }
 }
