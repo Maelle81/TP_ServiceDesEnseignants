@@ -1,22 +1,20 @@
 package champollion;
 
 public class ServicePrevu {
-	// TODO : implémenter cette classe
-    private final UE myUE;
-    private final Enseignant myTeacher;
-    
+	    
     public int volumeCM;
     public int volumeTD;
     public int volumeTP;
+    private UE ue;
+    private Enseignant enseignant;
 
-    public ServicePrevu(UE myUE, Enseignant myTeacher, int volumeCM, int volumeTD, int volumeTP) {
-        this.myUE = myUE;
-        this.myTeacher = myTeacher;
+    public ServicePrevu(int volumeCM, int volumeTD, int volumeTP, UE ue, Enseignant enseignant) {
         this.volumeCM = volumeCM;
         this.volumeTD = volumeTD;
         this.volumeTP = volumeTP;
-    }
-    
+        this.ue = ue;
+        this.enseignant = enseignant;
+    }     
 
     public int getVolumeCM() {
         return volumeCM;
@@ -29,6 +27,15 @@ public class ServicePrevu {
     public int getVolumeTP() {
         return volumeTP;
     }
+
+    public UE getUe() {
+        return ue;
+    }
+
+    public Enseignant getEnseignant() {
+        return enseignant;
+    }
+
     
     
 }

@@ -14,16 +14,34 @@ public class Intervention {
     //Attributs
     public Date date;
     public int duree;
-    public boolean annulee =false;
-    private int heureDebut;
-
+    public boolean annulee  =false;
+    private final int heureDebut;
+    private final TypeIntervention type;
+    private final Salle salle;
+    private UE ue;
+            
     //Constructeur
-    public Intervention(Date date, int duree, int heureDebut) {
+
+    public Intervention(Date date, int duree, int heureDebut, TypeIntervention type, Salle salle, UE ue) {
         this.date = date;
         this.duree = duree;
         this.heureDebut = heureDebut;
+        this.type = type;
+        this.salle = salle;
+        this.ue = ue;
     }
+
+    public Intervention(TypeIntervention type) {
+        this.date = new Date("01/01/2001");
+        this.duree=1;
+        this.heureDebut = 10;
+        this.type = type;
+        this.salle = new Salle("101", 36);
+    }
+
     
+    
+       
     //Getter
     public Date getDate() {
         return date;
@@ -35,11 +53,21 @@ public class Intervention {
 
     public boolean isAnnulee() {
         return annulee;
-    }
+    }    
 
     public int getHeureDebut() {
         return heureDebut;
     }
+
+    public TypeIntervention getType() {
+        return type;
+    }
+
+    public UE getUe() {
+        return ue;
+    }
+
+   
     
     
 }
