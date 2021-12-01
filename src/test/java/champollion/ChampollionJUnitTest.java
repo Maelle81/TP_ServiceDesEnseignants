@@ -16,9 +16,9 @@ public class ChampollionJUnitTest {
 		untel = new Enseignant("untel", "untel@gmail.com");
 		uml = new UE("UML");
 		java = new UE("Programmation en java");	
-                        interCM = new Intervention(CM);
-                        interTD = new Intervention(TD);
-                        interTP = new Intervention(TP);
+                interCM = new Intervention(TP, uml, 30);
+                interTD = new Intervention(TD, uml , 10);
+                interTP = new Intervention(TP, uml, 10);
 	}
 	
 
@@ -68,10 +68,24 @@ public class ChampollionJUnitTest {
            
         }
         
-        @Test 
-        public void testResteAPlanifier(){
+        
+        
+        @Test
+        public void testVerifierTypeIntervention(){
+            ServicePrevu s = new ServicePrevu(10, 5, 20, uml, untel);
+            assertTrue(s.getUe().equals(uml), "C'ets la bonne UE");
+        }
+        
+        @Test
+        public void testAjoutEtResteAPlanifiee(){
             int sommePlanifie = 0;
-            assertEquals(0, sommePlanifie, "La planification initiale doit être à 0");
+            untel.ajouteEnseignement(uml, 0, 0, 20);
+                        
+            assertEquals(0, sommePlanifie, "La planification initiale = 0");
+            
+            untel.ajouteIntervention(interTP);
+            assertEquals(10, untel.resteAPlanifier(uml, TP), "Le nombre d'heures restantes de TP est correct");
+            
         }
 	
 }

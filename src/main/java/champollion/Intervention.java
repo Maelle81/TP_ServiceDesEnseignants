@@ -31,12 +31,13 @@ public class Intervention {
         this.ue = ue;
     }
 
-    public Intervention(TypeIntervention type) {
+    public Intervention(TypeIntervention type, UE ue, int duree) {
         this.date = new Date("30/11/2001");
-        this.duree=1;
+        this.duree= duree;
         this.heureDebut = 9;
         this.type = type;
         this.salle = new Salle("019", 36);
+        this.ue = ue;
     }
 
     

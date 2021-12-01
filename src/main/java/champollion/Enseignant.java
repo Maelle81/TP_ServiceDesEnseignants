@@ -80,22 +80,22 @@ public class Enseignant extends Personne {
     
     public int resteAPlanifier( UE ue, TypeIntervention type){
         
-        int sommePlanifié = 0;
+        int sommePlanifie = 0;
         for(Intervention inter : intervention){
             if(inter.getType().equals(type) && inter.getUe().equals(ue)){
-               sommePlanifié += inter.getDuree();
+               sommePlanifie += inter.getDuree();
             }
         }
         for (ServicePrevu s : service){
             if(s.getUe().equals(ue)){
                 switch(type){
-                    case CM : sommePlanifié -= s.getVolumeCM();
-                    case TD : sommePlanifié -= s.getVolumeTD();
-                    case TP : sommePlanifié -= s.getVolumeTP();
+                    case CM : sommePlanifie = s.getVolumeCM() -sommePlanifie;
+                    case TD : sommePlanifie = s.getVolumeTD() -sommePlanifie;
+                    case TP : sommePlanifie =  s.getVolumeTP()- sommePlanifie;
                     break;
                 }
             }
         }
-        return  (int) sommePlanifié;
+        return  (int) sommePlanifie;
     }
 }
